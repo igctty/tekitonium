@@ -22,4 +22,7 @@ class Operation():
     self.driver.get(url)
 
 
-
+  def click(self, locator):
+    print("click: "+ locator)
+    self.element = self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
+    self.element.click()
