@@ -26,3 +26,12 @@ class Operation():
     print("click: "+ locator)
     self.element = self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
     self.element.click()
+
+
+  def input(self, locator, text):
+    print("input: "+ locator)
+    self.element = self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
+    self.element.clear()
+    self.element.send_keys(text)
+
+
