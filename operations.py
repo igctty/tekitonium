@@ -35,3 +35,16 @@ class Operation():
     self.element.send_keys(text)
 
 
+  def check(self, locator):
+    print("check: "+ locator)
+    self.element = self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
+    if not(self.element.is_selected()):
+      self.element.click()
+
+
+  def select(self, locator, value):
+    print("select: "+ locator)
+    self.element = self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
+    selector = Select(self.element)
+    if (selector.select_by_visible_text(value)):
+      selector.select_by_visible_text(value)
